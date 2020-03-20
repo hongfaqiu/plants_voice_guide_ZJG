@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<div id="panel"></div>
 <div id="container" tabindex="0" style="position: relative;">
   <div class="service-item service-item-taste">
     <div class="service-item-content service-item-taste-content">
@@ -34,22 +35,39 @@
             <span class="total-time"><span class="used-time">00: 00</span> / 01: 00</span></span>
           </div>
           <div class="start-taste-button">
-            <button class="taste-button start-button">结束识别</button>
+            <button class="taste-button start-button" onclick="UpdateData(wordExtraction());">结束识别</button>
           </div>
         </div>
-        <div class="output-box" id="result_output"></div>
+        <div class="end_taste_right">
+          <div class="output-box" id="result_output"></div>
+          <div class="end-button">
+            <button class="query-button" id="confirm_button" onclick="UpdateData(wordExtraction());">确认</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <div class="info2" >点击地图上的点标记，查看植物信息</div>
+  <button class="button1" id="refresh_button" onclick="refresh()" ></button>
 </div>
+
 <script src="hmac-sha256.js"></script>
 <script src="enc-base64-min.js"></script>
 <script src="jquery.js"></script>
 <script src="iat.js"></script>
+<script src="wordExtraction.js"></script>
+<script src="UpdateData.js"></script>
 
-<script src="https://webapi.amap.com/maps?v=1.4.2&key=608d75903d29ad471362f8c58c550daf"></script>
+<link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+<script src="https://webapi.amap.com/maps?v=1.4.2&key=608d75903d29ad471362f8c58c550daf&plugin=AMap.Walking"></script>
+<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
 <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+<script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
 <script src="https://webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
 <script src="map.js"></script>
+<script src="navigation.js"></script>
+
+
+
 </body>
 </html>

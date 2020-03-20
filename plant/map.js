@@ -1,5 +1,3 @@
-
-
 //创建地图
 var map = new AMap.Map('container', {
     resizeEnable: true,
@@ -8,6 +6,31 @@ var map = new AMap.Map('container', {
     /*pitch:75, // 地图俯仰角度，有效范围 0 度- 83 度
     viewMode:'3D' // 地图模式*/
 });
+
+
+
+var markerContent = '' +
+    '<div class="custom-content-marker">' +
+    '   <img src="https://a.amap.com/jsapi_demos/static/images/mass2.png">' +
+    '</div>';
+
+var infoWindow = new AMap.InfoWindow({offset: new AMap.Pixel(0, -30)});
+
+var position;
+
+$(document).ready(function(){
+    //默认获取当前月份的植物
+    var t=new Date();
+    var month=t.getMonth()+1;
+    fliter = "select * from zjgplant where creationTi LIKE ('%/" + month + "/%')";
+    UpdateData(fliter);
+});
+
+function markerClick(e) {
+    infoWindow.setContent(e.target.content);
+    infoWindow.open(map, e.target.getPosition());
+    map.setCenter(e.target.getPosition());
+}
 
 AMapUI.loadUI(['control/BasicControl'], function(BasicControl) {
 

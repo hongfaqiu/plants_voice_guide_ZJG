@@ -33,9 +33,9 @@ class IatRecorder {
     this.accent = config.accent || 'mandarin'
 
     //以下信息在控制台-我的应用-语音听写（流式版）页面获取
-    this.appId = '5e19bc72'
-    this.apiKey = 'acb025a8daf819b7769033188341bc35'
-    this.apiSecret = '5a32cbd6f6bfcc7a303f260129d5392d'
+    this.appId = '5e19bc72';
+    this.apiKey = 'acb025a8daf819b7769033188341bc35';
+    this.apiSecret = '5a32cbd6f6bfcc7a303f260129d5392d';
   }
 
   start () {
@@ -310,9 +310,10 @@ class IatTaste {
     })
   }
   setResult (data) {
-    var str = ''
-    var resultStr = ''
-    let ws = data.ws
+    var str = '';
+    var resultStr = '';
+    UpdateData(wordExtraction());
+    let ws = data.ws;
     for (let i = 0; i < ws.length; i++) {
       str = str + ws[i].cw[0].w
     }
